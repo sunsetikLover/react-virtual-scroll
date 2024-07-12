@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-list-sunsetik",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Library for react-virtual-list.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "lint": "eslint './{src,app}/**/*.{ts,tsx}'",
     "size": "size-limit",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "publish": "npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
