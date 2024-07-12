@@ -1,7 +1,7 @@
 {
-  "name": "npm-react-typescript-template",
-  "version": "1.0.7",
-  "description": "An empty base template for publishing a React TS package to npmjs library.",
+  "name": "react-virtual-list-sunsetik",
+  "version": "1.0.0",
+  "description": "Library for react-virtual-list.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -13,19 +13,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/helgastogova/npm-react-typescript-template"
+    "url": "https://github.com/sunsetikLover/react-virtual-scroll"
   },
   "keywords": [
     "react",
     "typescript",
     "bottom-sheet"
   ],
-  "author": "Olga Stogova <helgastogova@gmail.com>",
+  "author": "Evgeny Zaytsev <zena81533@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/helgastogova/npm-react-typescript-template/issues"
+    "url": "https://github.com/sunsetikLover/react-virtual-scroll/issues"
   },
-  "homepage": "https://github.com/helgastogova/npm-react-typescript-template#readme",
+  "homepage": "https://github.com/sunsetikLover/react-virtual-scroll#readme",
   "peerDependencies": {
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0",

@@ -5,7 +5,7 @@ const resolve = require('@rollup/plugin-node-resolve').default;
 const commonjs = require('@rollup/plugin-commonjs');
 
 module.exports = {
-  input: 'src/index.tsx',
+  input: 'src/index.ts',
   output: {
     dir: 'dist',
     format: 'cjs',
