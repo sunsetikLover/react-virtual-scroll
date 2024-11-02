@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-list-sunsetiklovers",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Library for react-virtual-list.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -10,7 +10,7 @@
     "lint": "eslint './{src,app}/**/*.{ts,tsx}'",
     "size": "size-limit",
     "prepare": "npm run build",
-    "full-publish": "npm run build && npm version patch && npm publish"
+    "publish": "npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
