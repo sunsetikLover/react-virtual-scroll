@@ -1,1 +1,1 @@
-export { VirtualList } from './virtual-list';
+export { Grid } from './Grid';

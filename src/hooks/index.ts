@@ -1,1 +1,1 @@
-export { useFixedSizeList } from './useFIxedSizeList'
+export { useDynamicSizeGrid } from './useFIxedSizeList'
