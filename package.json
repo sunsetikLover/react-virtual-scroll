@@ -10,7 +10,7 @@
     "lint": "eslint './{src,app}/**/*.{ts,tsx}'",
     "size": "size-limit",
     "prepare": "npm run build",
-    "publish": "npm run build && npm version patch && npm publish"
+    "full-publish": "npm run build && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
