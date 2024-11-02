@@ -1,6 +1,6 @@
 {
   "name": "react-virtual-list-sunsetik",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Library for react-virtual-list.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
