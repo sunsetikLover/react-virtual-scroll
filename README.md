@@ -16,35 +16,39 @@ To use `react-virtual-list-sunsetik`, install it via npm:
 npm install react-virtual-list-sunsetik
 ```
 
-Simple Usage
+Vertical scroll Usage
 Here's a simple example of using the library to create a virtualized list:
 
 ```bash
+import React from "react";
+import { useDynamicSizeGrid } from 'react-virtual-list-sunsetiklovers'
 import {
   useCallback,
   useRef,
   useState,
 } from "react";
-import { useDynamicSizeGrid } from 'react-virtual-list-sunsetik';
+
+const containerHeight = 600;
+const gridSize = 100
 
 const createItems = () =>
-  Array.from({ length: 10_000 }, (_, index) => ({
+  Array.from({ length: gridSize }, () => ({
     id: Math.random().toString(36).slice(2),
-    text: String(index),
+    text: Math.random().toString(36).slice(2),
   }));
 
-const itemHeight = 40;
-const containerHeight = 600;
-
-export function Simple() {
+export function Grid() {
   const [listItems, setListItems] = useState(createItems);
   const scrollElementRef = useRef<HTMLDivElement>(null);
 
-  const { isScrolling, virtualItems, totalHeight } = useDynamicSizeGrid({
-    itemHeight,
-    itemsCount: listItems.length,
-    listHeight: containerHeight,
+  const { virtualRows, totalHeight, measureRowHeight } = useDynamicSizeGrid({
+    estimateColumnWidth: useCallback(() => 16, []),
+    rowHeight: useCallback(() => 16, []),
+    rowsCount: listItems.length,
     getScrollElement: useCallback(() => scrollElementRef.current, []),
+    getRowKey: useCallback((index) => listItems[index]!.id, [listItems]),
+    columnsCount: 0,
+    getColumnKey: useCallback((index) => index, []),
   });
 
   return (
@@ -54,7 +58,7 @@ export function Simple() {
         <button
           onClick={() => setListItems((items) => items.slice().reverse())}
         >
-          Reverse
+          reverse
         </button>
       </div>
       <div
@@ -67,21 +71,22 @@ export function Simple() {
         }}
       >
         <div style={{ height: totalHeight }}>
-          {virtualItems.map((virtualItem) => {
+          {virtualRows.map((virtualItem) => {
             const item = listItems[virtualItem.index]!;
 
             return (
               <div
+                key={item.id}
+                data-row-index={virtualItem.index}
+                ref={measureRowHeight}
                 style={{
                   position: "absolute",
                   top: 0,
                   transform: `translateY(${virtualItem.offsetTop}px)`,
-                  height: itemHeight,
                   padding: "6px 12px",
                 }}
-                key={item.id}
               >
-                {isScrolling ? "Scrolling..." : item.text}
+                {virtualItem.index} {item.id}
               </div>
             );
           })}
@@ -96,7 +101,7 @@ Grid Usage
 For a grid layout, you can use the following example:
 
 ```bash
-import { useDynamicSizeGrid } from 'react-virtual-list-sunsetik';
+import { useDynamicSizeGrid } from 'react-virtual-list-sunsetiklovers';
 import { useCallback, useRef, useState } from "react";
 
 const containerHeight = 600;
@@ -107,7 +112,7 @@ const createItems = () =>
     id: Math.random().toString(36).slice(2),
     columns: Array.from({ length: gridSize }, () => ({
       id: Math.random().toString(36).slice(2),
-      text: `Item ${Math.random().toString(36).slice(2)}`,
+      text: 'You can paste a faker',
     })),
   }));
 
